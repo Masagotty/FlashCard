@@ -2,6 +2,7 @@ package android.lifeistech.com.flashcard;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -21,7 +22,6 @@ public class MainActivity extends AppCompatActivity {
         Word apple = new Word(R.drawable.apple, "あっぷる");
         Word google = new Word(R.drawable.google, "ぐーぐる");
         Word microsoft = new Word(R.drawable.microsoft, "まいくろそふと");
-
         addWord(android);
         addWord(apple);
         addWord(google);
@@ -38,10 +38,17 @@ public class MainActivity extends AppCompatActivity {
 
         ImageView imageView = new ImageView(this);
         imageView.setImageResource(word.resId);
+        imageView.setScaleType(ImageView.ScaleType.FIT_XY);
 
-        layout.addView(imageView);
+
+        layout.addView(imageView, createParam(200,200));
         layout.addView(nameTextView);
 
         container.addView(layout);
     }
+
+    private LinearLayout.LayoutParams createParam(int w, int h){
+        return new LinearLayout.LayoutParams(w, h);
+    }
+
 }
