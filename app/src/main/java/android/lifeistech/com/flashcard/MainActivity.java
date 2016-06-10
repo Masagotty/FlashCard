@@ -10,6 +10,7 @@ import android.widget.TextView;
 public class MainActivity extends AppCompatActivity {
 
     LinearLayout container;
+    CustomWord[] custom;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,14 +19,24 @@ public class MainActivity extends AppCompatActivity {
 
         container = (LinearLayout)findViewById(R.id.container);
 
-        CustomWord android = new CustomWord(R.drawable.android, "あんどろいど", "N");
-        CustomWord apple = new CustomWord(R.drawable.apple, "あっぷる", "iPhone");
-        CustomWord google = new CustomWord(R.drawable.google, "ぐーぐる", "Nexus");
-        CustomWord microsoft = new CustomWord(R.drawable.microsoft, "まいくろそふと", "surface");
-        addWord(android);
-        addWord(apple);
-        addWord(google);
-        addWord(microsoft);
+        custom = new CustomWord[]{
+            new CustomWord(R.drawable.android, "あんどろいど", "N"),
+            new CustomWord(R.drawable.apple, "あっぷる", "iPhone"),
+            new CustomWord(R.drawable.google, "ぐーぐる", "Nexus"),
+            new CustomWord(R.drawable.microsoft, "まいくろそふと", "surface")
+        };
+
+        for (int i = 0; i < 4; i++) {
+            addWord(custom[i]);
+        }
+//        CustomWord android = new CustomWord(R.drawable.android, "あんどろいど", "N");
+//        CustomWord apple = new CustomWord(R.drawable.apple, "あっぷる", "iPhone");
+//        CustomWord google = new CustomWord(R.drawable.google, "ぐーぐる", "Nexus");
+//        CustomWord microsoft = new CustomWord(R.drawable.microsoft, "まいくろそふと", "surface");
+//        addWord(android);
+//        addWord(apple);
+//        addWord(google);
+//        addWord(microsoft);
 
     }
 
