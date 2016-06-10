@@ -18,10 +18,10 @@ public class MainActivity extends AppCompatActivity {
 
         container = (LinearLayout)findViewById(R.id.container);
 
-        Word android = new Word(R.drawable.android, "あんどろいど");
-        Word apple = new Word(R.drawable.apple, "あっぷる");
-        Word google = new Word(R.drawable.google, "ぐーぐる");
-        Word microsoft = new Word(R.drawable.microsoft, "まいくろそふと");
+        CustomWord android = new CustomWord(R.drawable.android, "あんどろいど", "N");
+        CustomWord apple = new CustomWord(R.drawable.apple, "あっぷる", "iPhone");
+        CustomWord google = new CustomWord(R.drawable.google, "ぐーぐる", "Nexus");
+        CustomWord microsoft = new CustomWord(R.drawable.microsoft, "まいくろそふと", "surface");
         addWord(android);
         addWord(apple);
         addWord(google);
@@ -29,12 +29,15 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void addWord(Word word) {
+    public void addWord(CustomWord word) {
         LinearLayout layout = new LinearLayout(this);
         layout.setOrientation(LinearLayout.HORIZONTAL);
 
         TextView nameTextView = new TextView(this);
-        nameTextView.setText(word.name);
+        nameTextView.setText(word.name + ":");
+
+        TextView productTextView = new TextView(this);
+        productTextView.setText(word.product);
 
         ImageView imageView = new ImageView(this);
         imageView.setImageResource(word.resId);
@@ -43,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
 
         layout.addView(imageView, createParam(200,200));
         layout.addView(nameTextView);
+        layout.addView(productTextView);
 
         container.addView(layout);
     }
